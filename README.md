@@ -1,79 +1,68 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Flow
+React Native Flow is a starter project for building React Native apps. It provides a solid foundation with a pre-configured folder structure, Redux for state management, authentication flow, and navigation based on the authentication state. This project helps you jump-start your React Native development by focusing on best practices for scalable app architecture, authentication flow, and clean code structure. 
+## Features 
+- **Folder Structure:** 
+A scalable and organized folder structure for better maintainability. 
+- **Redux Setup:** Pre-configured Redux for efficient state management. 
+- **Authentication Flow:** A complete authentication flow for user login and registration.
+- **Navigation:** Navigation setup based on authentication state (authenticated and unauthenticated users). 
+- **React Navigation:** Pre-installed and set up for seamless navigation in your app. ## Installation 
+### Prerequisites Ensure you have the following installed: 
+- **Node.js** (preferably the latest stable version) 
+- **Android Studio** (for Android development) or **Xcode** (for iOS development) 
+### Step 1: 
+- Clone the Repository 
 
-# Getting Started
+  - ``` git clone https://github.com/your-username/react-native-flow.git```
+  - ``` cd react-native-flow ``` 
+### Step 2: Install Dependencies 
+- ``` npm install ``` 
+### Step 3: 
+Set Up Android or iOS Environment Follow the official React Native documentation to set up your Android or iOS development environment: - [Android Setup](https://reactnative.dev/docs/environment-setup#android-development-environment) - [iOS Setup](https://reactnative.dev/docs/environment-setup#ios-development-environment) 
+### Step 4: Run the Project For Android:
+ -  For android``` npx react-native run-android ``` For iOS: ``` npx react-native run-ios ``` 
+## Folder Structure 
+The folder structure is designed to keep the project modular and easy to scale. Here's a quick overview: 
+- /src 
+  - /assets        :```  Images, fonts, and other assets``` 
+  - /components     :``` Reusable components```
+  - /redux          :``` Redux store, actions, reducers ```
+  - /navigation:``` Navigation setup (stack, tab, etc.)``` 
+  - /screens:        ``` Different screens of the app``` 
+  - /utils:         ``` Helper functions and utilities ``` 
+  - /services:       ``` API and authentication service ``` 
+## Redux Setup 
+Redux is set up to manage global app state. The store is configured with reducers, middleware, and actions. You can easily add more reducers and actions as your app grows.
+- **Actions**: Defined in `/redux/actions/` 
+- **Reducers**: Defined in `/redux/reducers/` 
+- **Store**: The central store is configured in `/redux/store.js` 
+## Authentication Flow 
+The app includes a simple authentication flow with: 
+- **Login Screen**: User can log in with their credentials. 
+- **Registration Screen**: New users can sign up. 
+- **AuthContext**: Tracks user authentication state. 
+- **Protected Routes**: Screens that are only accessible after authentication. 
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+The authentication flow is connected with Redux to manage the logged-in user state across the app. 
+## Navigation Navigation 
+is set up using **React Navigation**. It includes: 
+- **Authenticated Stack**: A stack of screens that users can access after logging in. 
+- **Unauthenticated Stack**: A stack of screens shown to users before they log in (e.g., login and registration). 
 
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+The navigation stack changes dynamically based on the authentication state. 
+## Contributing If you'd like to contribute to the project, feel free to fork the repository and submit a pull request. Contributions are welcome! 
+### Steps for contributing: 
+1. Fork the repository 
+2. Create a new branch (`git checkout -b feature-branch`) 
+3. Make your changes 
+4. Commit your changes (`git commit -am 'Add new feature'`) 
+5. Push to the branch (`git push origin feature-branch`) 
+6. Create a new pull request 
+## License 
+This project is licensed under the MIT License 
+- see the [LICENSE](LICENSE) file for details. 
+## Acknowledgements 
+- React Native 
+- Redux 
+- React Navigation 
+- Expo (optional, if you're using Expo in your project)
