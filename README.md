@@ -106,7 +106,7 @@ The app includes a simple authentication flow with:
 - **AuthService**: services to Authenticate and Unauthenticate the app
 - **Authenticated Routes**: Screens that are only accessible after authentication. 
 
-The authentication flow is also dependent on the responseof Rest APi services (with user and token) , such as Login api, Register api etc. and is connected with Redux to manage the logged-in user state across the app. 
+The authentication flow is also dependent on the response of REST API services (with user and token) , such as Login api, Register api etc. and is connected with Redux to manage the logged-in user state across the app. 
 
 ## Navigation 
 Navigation is set up using **React Navigation**. It includes: 
