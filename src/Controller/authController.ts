@@ -3,7 +3,7 @@ import ApiUri from "../Constants/ApiUrl";
 import store from "../Redux/store";
 import { updateAppStore } from "../Redux/Slices/appSlice";
 import { loginApi } from "../Services/authentication";
-import { resetInputsState, setAppState } from "../Utils/storeFunctions";
+import { resetInputsState, setAppState } from "../Redux/storeActions";
 import { User } from "../Types/models";
 import { authenticateApp } from "../Config/authConfig";
 

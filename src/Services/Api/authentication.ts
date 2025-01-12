@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios"
-import ApiUri from "../Constants/ApiUrl"
-import { LoginReqBody, RegisterReqBody } from "../Types/apiReqBodyType"
+import ApiUri from "../../Constants/ApiUrl"
+import { LoginReqBody, RegisterReqBody } from "../../Types/apiReqBodyType"
 import { postApiRequest } from "./apiClient"
 
 export const loginApi = (body:LoginReqBody)=>{

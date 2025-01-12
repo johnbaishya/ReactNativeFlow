@@ -4,7 +4,7 @@ import Modal from 'react-native-modal';
 import { ActivityIndicator } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
-import { setAppState } from '../../Utils/storeFunctions';
+import { setAppState } from '../../Redux/storeActions';
 
 const LoadingModal = ()=>{
     const {success,successMessage} = useSelector((state:RootState)=>state.app)

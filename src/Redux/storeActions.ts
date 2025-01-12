@@ -1,6 +1,6 @@
-import { appStateType, resetAppStore, updateAppStore } from '../Redux/Slices/appSlice';
-import { InputsStateType, resetInputsStore, updateInputsStore } from '../Redux/Slices/inputsSlice';
-import store from '../Redux/store';
+import { appStateType, resetAppStore, updateAppStore } from './Slices/appSlice';
+import { InputsStateType, resetInputsStore, updateInputsStore } from './Slices/inputsSlice';
+import store from './store';
 
 export const setAppState = (data: Partial<appStateType>)=>{
     store.dispatch(updateAppStore(data));
