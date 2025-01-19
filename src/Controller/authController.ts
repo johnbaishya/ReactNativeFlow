@@ -1,11 +1,10 @@
 import axios from "axios";
-import ApiUri from "../Constants/ApiUrl";
+import ApiUri from "../Constants/uriConstants";
 import store from "../Redux/store";
-import { updateAppStore } from "../Redux/Slices/appSlice";
-import { loginApi } from "../Services/authentication";
 import { resetInputsState, setAppState } from "../Redux/storeActions";
 import { User } from "../Types/models";
-import { authenticateApp } from "../Config/authConfig";
+import { loginApi } from "../Services/Api/authentication";
+import { authenticateApp } from "../Services/AuthServices";
 
 export const setDefaultHeaders = (token:string,url:string=ApiUri.BaseUri)=>{
     axios.defaults.baseURL = url;

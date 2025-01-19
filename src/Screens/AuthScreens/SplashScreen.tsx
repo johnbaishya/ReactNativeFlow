@@ -1,14 +1,14 @@
 import { View,Text } from "react-native";
 import AppStyles from "../../Styles/appStyles";
-import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
+import { setAppState } from "../../Redux/storeActions";
 
 
 const SplashScreen = ()=>{
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     useEffect(()=>{
         setTimeout(()=>{
-            navigation.navigate("LoginScreen" as never);
+            setAppState({showSplashScreen:false})
         },1000)
     },[])
     return(

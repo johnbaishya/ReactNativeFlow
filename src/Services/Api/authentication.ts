@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios"
-import ApiUri from "../../Constants/ApiUrl"
+import ApiUri from "../../Constants/uriConstants"
 import { LoginReqBody, RegisterReqBody } from "../../Types/apiReqBodyType"
 import { postApiRequest } from "./apiClient"
 

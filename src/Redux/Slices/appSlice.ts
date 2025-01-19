@@ -10,7 +10,9 @@ const initialState = {
     errorMessage:"",
     success:false,
     successMessage:"",
-    loading:false
+    loading:false,
+    showSplashScreen:true,
+    darkTheme:false,
 };
 
 export type appStateType = typeof initialState;

@@ -6,21 +6,21 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+
 import {
+  AppState,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import {Provider} from "react-redux"; 
-import store from './src/Redux/store';
+import {Provider, useSelector} from "react-redux"; 
+import store, { RootState } from './src/Redux/store';
 import Route from './src/Navigations/Route';
+import { PaperProvider } from 'react-native-paper';
+import {customDarkTheme, customLightTheme } from './src/Theme/theme';
 
 
 
@@ -31,13 +31,10 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+
   return (
     <Provider store={store}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
-      <Route/>
+        <Route/>
     </Provider>
   );
 }

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios"
-import ApiUri from "../../Constants/ApiUrl"
+import ApiUri from "../../Constants/uriConstants"
 
 export const getApiRequest = (uri:string)=>{
     return new Promise<AxiosResponse>((resolve, reject) => {
