@@ -65,8 +65,8 @@ These libraries are pre-configured to streamline development while maintaining f
 ### Step 1: 
 - Clone the Repository 
 
-  - ``` git clone https://github.com/your-username/react-native-flow.git```
-  - ``` cd react-native-flow ``` 
+  - ``` git clone https://github.com/johnbaishya/ReactNativeFlow.git```
+  - ``` cd ReactNativeFlow ``` 
 ### Step 2: Install Dependencies 
 - ``` npm install ``` 
 ### Step 3: 
