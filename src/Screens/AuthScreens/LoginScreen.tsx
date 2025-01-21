@@ -1,7 +1,7 @@
 import { Image, ScrollView, Text, View } from "react-native"
 import AppStyles from "../../Styles/appStyles";
-import { Button, TextInput, useTheme } from "react-native-paper";
-import React from "react";
+import { Button, Divider, Icon, TextInput, useTheme } from "react-native-paper";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 import { setAppState, setInputsState } from "../../Redux/storeActions";
@@ -9,44 +9,54 @@ import { handleLogin } from "../../Controller/authController";
 import loginScreenStyles from "../../Styles/ScrrenStyles/loginScreenStyles";
 import inputStyles from "../../Styles/ComponentStyles/InputStyles";
 import { IMAGES } from "../../Constants/themeConstants";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = ()=>{
     const {colors} = useTheme();
     const {loginEmail,loginPassword} = useSelector((state:RootState)=>state.inputs);
-    const {darkTheme} = useSelector((state:RootState)=>state.app)
+    const [pvisible,setPvisible] = useState(false);
+    const {darkTheme,loginLoading} = useSelector((state:RootState)=>state.app);
+    const navigation = useNavigation();
     return(
         <View style={[AppStyles.container,{backgroundColor:colors.background}]}>
-            <ScrollView>
+            <ScrollView keyboardShouldPersistTaps="always">
                 <View style={[loginScreenStyles.loginContainer]}>
                     <View style={[loginScreenStyles.logoContainer]}>
                         <Image source={IMAGES.userIcon} style={loginScreenStyles.logo} tintColor={colors.primary}/>
                     </View>
                     <View style={[inputStyles.inputContainer]}>
                         <TextInput
-                            mode="outlined"
+                            mode="flat"
                             value={loginEmail}
                             keyboardType="email-address"
                             onChangeText={(loginEmail)=>{
                                 setInputsState({loginEmail});
                             }}
                             placeholder="email"
+                            left={<TextInput.Icon icon="email"/>}
                         />
                     </View>
+                   
                     <View style={[inputStyles.inputContainer]}>
                         <TextInput
-                            mode="outlined"
+                            mode="flat"
                             value={loginPassword}
                             onChangeText={(loginPassword)=>{
                                 setInputsState({loginPassword});
                             }}
                             placeholder="password"
-                            secureTextEntry
+                            secureTextEntry={pvisible}
+                            left={<TextInput.Icon icon="lock"/>}
+                            right={<TextInput.Icon icon={!pvisible?"eye":"eye-off"} onPress={()=>{setPvisible(!pvisible)}} />}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
-                        <Button 
+                        <Button
                         style={loginScreenStyles.loginButton}
                         mode="contained"
+                        disabled={loginLoading}
+                        loading={loginLoading}
                         onPress={()=>{
                             handleLogin();
                         }}>
@@ -54,7 +64,7 @@ const LoginScreen = ()=>{
                                 Login
                             </Text>
                         </Button>
-                        <Button 
+                        {/* <Button 
                         style={[loginScreenStyles.loginButton,{backgroundColor:colors.secondary}]}
                         mode="contained"
                         onPress={()=>{
@@ -63,7 +73,15 @@ const LoginScreen = ()=>{
                             <Text style={{fontSize:20}}>
                                 change theme
                             </Text>
+                        </Button> */}
+                    </View>
+                    <Divider/>
+                    <View style={{alignItems:"center"}}>
+                        <Text>Don't have an account ?</Text>
+                        <Button mode="text" onPress={()=>{navigation.navigate("RegisterScreen" as never)}}>
+                            <Text style={{fontSize:18,textDecorationLine:"underline"}}>Register</Text>
                         </Button>
+
                     </View>
                 </View>
             </ScrollView>

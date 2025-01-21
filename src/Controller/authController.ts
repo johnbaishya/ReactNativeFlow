@@ -29,7 +29,7 @@ export const handleLogin = ()=>{
     }
 
     setAppState({
-        loading:true,
+        loginLoading:true,
     });
 
     loginApi({email:loginEmail,password:loginPassword})
@@ -40,6 +40,7 @@ export const handleLogin = ()=>{
         resetInputsState();
         setAppState({
             loading:false,
+            loginLoading:false,
         });
     })
     .catch(err=>{
@@ -47,6 +48,7 @@ export const handleLogin = ()=>{
         setAppState({error:true,errorMessage:"something went wrong"})
         setAppState({
             loading:false,
+            loginLoading:false,
         });
     })
 }

@@ -20,12 +20,12 @@ const Route = ()=>{
     },[]);
     return(
         <>
+            <AppModals/>
             <PaperProvider theme={darkTheme ? customDarkTheme : customLightTheme}>
                 <StatusBar
                 barStyle={darkTheme ? 'light-content' : 'dark-content'}
                 backgroundColor={COLORS.primary}
                 />
-                <AppModals/>
                 <NavigationContainer>
                     <>
                     {

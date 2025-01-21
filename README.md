@@ -91,6 +91,7 @@ The folder structure is designed to keep the project modular and easy to scale. 
   - **/screens**: Individual screens or pages of the app.  
   - **/services**: Handles API calls, authentication, and backend interactions.  
   - **/Styles**: Shared and reusable styles for consistent design.  
+  - **/Theme**: Include the custom theme of the aaplication including both dark and light theme.  
   - **/Types**: TypeScript types, interfaces and Enums for static type checking and better code maintainability.  
   - **/utils**: Helper functions and utility methods to simplify common tasks.  
 - **index.js**: The entry point for React Native's JavaScript code. This file is responsible for registering the main **App** component

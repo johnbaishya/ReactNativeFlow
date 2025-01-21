@@ -4,11 +4,11 @@ const loginScreenStyles = StyleSheet.create({
     loginContainer:{
         width:"100%",
         paddingVertical:50,
-        paddingHorizontal:10,
+        paddingHorizontal:20,
     },
     loginButton:{
-        borderRadius:5,
-        paddingVertical:5
+        // borderRadius:5,
+        // paddingVertical:5
         // height:50,
     },
     logoContainer:{

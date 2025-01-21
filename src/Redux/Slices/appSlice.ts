@@ -12,6 +12,7 @@ const initialState = {
     successMessage:"",
     loading:false,
     showSplashScreen:true,
+    loginLoading:false,
     darkTheme:false,
 };
 

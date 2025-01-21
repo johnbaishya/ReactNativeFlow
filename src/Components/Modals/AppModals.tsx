@@ -1,6 +1,7 @@
 import ErrorModal from "./ErrorModal"
-import SuccessModal from "./LoadingModal"
-import LoadingModal from "./SuccessModal"
+import SuccessModal from "./SuccessModal"
+import LoadingModal from "./LoadingModal"
+import React from "react"
 
 const AppModals = ()=>{
     return(
