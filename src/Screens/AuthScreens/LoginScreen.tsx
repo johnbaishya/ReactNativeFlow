@@ -11,6 +11,7 @@ import inputStyles from "../../Styles/ComponentStyles/InputStyles";
 import { IMAGES } from "../../Constants/themeConstants";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import { LoginButton } from "../../Components/Button";
 
 const LoginScreen = ()=>{
     const {colors} = useTheme();
@@ -52,8 +53,9 @@ const LoginScreen = ()=>{
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
-                        <Button
-                        style={loginScreenStyles.loginButton}
+                        <LoginButton
+                        // style={loginScreenStyles.loginButton}
+                        contentStyle={loginScreenStyles.loginButton}
                         mode="contained"
                         disabled={loginLoading}
                         loading={loginLoading}
@@ -63,7 +65,7 @@ const LoginScreen = ()=>{
                             <Text style={{fontSize:20}}>
                                 Login
                             </Text>
-                        </Button>
+                        </LoginButton>
                         {/* <Button 
                         style={[loginScreenStyles.loginButton,{backgroundColor:colors.secondary}]}
                         mode="contained"

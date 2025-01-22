@@ -13,6 +13,7 @@ const initialState = {
     loading:false,
     showSplashScreen:true,
     loginLoading:false,
+    registerLoading:false,
     darkTheme:false,
 };
 

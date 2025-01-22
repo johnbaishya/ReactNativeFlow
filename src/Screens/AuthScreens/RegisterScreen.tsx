@@ -1,30 +1,35 @@
-import { Image, ScrollView, Text, View } from "react-native"
+import { Image, ScrollView, View } from "react-native"
 import AppStyles from "../../Styles/appStyles";
-import { Button, Divider, Icon, TextInput, useTheme } from "react-native-paper";
+import { Button, Divider, Icon, Text, TextInput, useTheme } from "react-native-paper";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 import { setAppState, setInputsState } from "../../Redux/storeActions";
-import { handleLogin } from "../../Controller/authController";
+import { handleLogin, handleRegister } from "../../Controller/authController";
 import loginScreenStyles from "../../Styles/ScrrenStyles/loginScreenStyles";
 import inputStyles from "../../Styles/ComponentStyles/InputStyles";
 import { IMAGES } from "../../Constants/themeConstants";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import { LoginButton } from "../../Components/Button";
 
 const RegisterScreen = ()=>{
     const {colors} = useTheme();
     const {registerFirstName,registerLastName,registerEmail,registerPassword,registerPasswordConfirm} = useSelector((state:RootState)=>state.inputs);
     const [pvisible,setPvisible] = useState(false);
-    const {darkTheme,loginLoading} = useSelector((state:RootState)=>state.app)
+    const [pCvisible,setPCvisible] = useState(false);
+    const {darkTheme,registerLoading} = useSelector((state:RootState)=>state.app)
     const navigation = useNavigation();
     return(
         <View style={[AppStyles.container,{backgroundColor:colors.background}]}>
             <ScrollView keyboardShouldPersistTaps="always">
                 <View style={[loginScreenStyles.loginContainer]}>
-                    <View style={[loginScreenStyles.logoContainer]}>
-                        <Image source={IMAGES.userIcon} style={loginScreenStyles.logo} tintColor={colors.primary}/>
+                    <View style={[loginScreenStyles.registerTitleContainer]}>
+                        <Text variant="displaySmall" style={{color:colors.primary, fontWeight:"bold"}}>Register</Text>
                     </View>
+                    {/* <View style={[loginScreenStyles.logoContainer]}>
+                        <Image source={IMAGES.userIcon} style={loginScreenStyles.logo} tintColor={colors.primary}/>
+                    </View> */}
                     <View style={[inputStyles.inputContainer]}>
                         <TextInput
                             mode="flat"
@@ -39,9 +44,9 @@ const RegisterScreen = ()=>{
                     <View style={[inputStyles.inputContainer]}>
                         <TextInput
                             mode="flat"
-                            value={registerFirstName}
+                            value={registerLastName}
                             onChangeText={(text)=>{
-                                setInputsState({registerFirstName:text});
+                                setInputsState({registerLastName:text});
                             }}
                             placeholder="Family Name / Surname"
                             left={<TextInput.Icon icon="account"/>}
@@ -68,9 +73,9 @@ const RegisterScreen = ()=>{
                                 setInputsState({registerPassword:text});
                             }}
                             placeholder="password"
-                            secureTextEntry={pvisible}
+                            secureTextEntry={!pvisible}
                             left={<TextInput.Icon icon="lock"/>}
-                            right={<TextInput.Icon icon={!pvisible?"eye":"eye-off"} onPress={()=>{setPvisible(!pvisible)}} />}
+                            right={<TextInput.Icon icon={pvisible?"eye":"eye-off"} onPress={()=>{setPvisible(!pvisible)}} />}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
@@ -81,24 +86,25 @@ const RegisterScreen = ()=>{
                                 setInputsState({registerPasswordConfirm:text});
                             }}
                             placeholder="Re-type password"
-                            secureTextEntry={pvisible}
+                            secureTextEntry={!pCvisible}
                             left={<TextInput.Icon icon="lock"/>}
-                            right={<TextInput.Icon icon={!pvisible?"eye":"eye-off"} onPress={()=>{setPvisible(!pvisible)}} />}
+                            right={<TextInput.Icon icon={pCvisible?"eye":"eye-off"} onPress={()=>{setPCvisible(!pCvisible)}} />}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
-                        <Button
-                        style={loginScreenStyles.loginButton}
+                        <LoginButton
+                        // style={loginScreenStyles.loginButton}
+                        contentStyle={loginScreenStyles.loginButton}
                         mode="contained"
-                        disabled={loginLoading}
-                        loading={loginLoading}
+                        disabled={registerLoading}
+                        loading={registerLoading}
                         onPress={()=>{
-                            handleLogin();
+                            handleRegister();
                         }}>
                             <Text style={{fontSize:20}}>
                                 Register
                             </Text>
-                        </Button>
+                        </LoginButton>
                         {/* <Button 
                         style={[loginScreenStyles.loginButton,{backgroundColor:colors.secondary}]}
                         mode="contained"
@@ -115,7 +121,8 @@ const RegisterScreen = ()=>{
                         <Button mode="text" onPress={()=>{
                             navigation.navigate("LoginScreen" as never)
                         }}>
-                            <Text style={{fontSize:16,textDecorationLine:"underline"}}>Already Have an Account</Text>
+                            Already Have an Account
+                            {/* <Text style={{fontSize:16,textDecorationLine:"underline"}}>Already Have an Account</Text> */}
                         </Button>
 
                     </View>

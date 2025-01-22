@@ -7,9 +7,13 @@ const loginScreenStyles = StyleSheet.create({
         paddingHorizontal:20,
     },
     loginButton:{
-        // borderRadius:5,
-        // paddingVertical:5
-        // height:50,
+        borderRadius:10,
+        // paddingVertical:4,
+        height:50,
+    },
+    loginButtonText:{
+        fontSize:22,
+        // marginVertical:50,
     },
     logoContainer:{
         marginVertical:20,
@@ -20,6 +24,11 @@ const loginScreenStyles = StyleSheet.create({
         height:100,
         resizeMode:"contain",
         aspectRatio:"1/1"
+    },
+    registerTitleContainer:{
+        width:"100%",
+        alignItems:"center",
+        marginVertical:10,
     }
 });
 
