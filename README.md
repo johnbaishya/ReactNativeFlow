@@ -71,7 +71,10 @@ These libraries are pre-configured to streamline development while maintaining f
 - ``` npm install ``` 
 ### Step 3: 
 Set Up Android or iOS Environment Follow the official React Native documentation to set up your Android or iOS development environment: - [Android Setup](https://reactnative.dev/docs/environment-setup#android-development-environment) - [iOS Setup](https://reactnative.dev/docs/environment-setup#ios-development-environment) 
-### Step 4: Run the Project:
+### Step 4: Setup configurations
+ - Rename the file `env.example.ts` to `env.ts`, configure the base URL of your REST API, and add other environment constants or keys.
+ - Configure API URLs in `src/Constants/uriConstants.ts` according to your REST API.
+### Step 5: Run the Project:
  -  **For android :**``` npx react-native run-android ``` 
  - **For iOS:** ``` npx react-native run-ios ``` 
 ## Folder Structure 

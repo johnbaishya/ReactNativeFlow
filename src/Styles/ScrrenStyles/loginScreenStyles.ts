@@ -23,13 +23,13 @@ const loginScreenStyles = StyleSheet.create({
     logo:{
         height:80,
         resizeMode:"contain",
-        aspectRatio:"1/1"
+        aspectRatio:"1/1",
     },
     registerTitleContainer:{
         width:"100%",
         alignItems:"center",
         marginVertical:10,
-    }
+    },
 });
 
 export default loginScreenStyles;
