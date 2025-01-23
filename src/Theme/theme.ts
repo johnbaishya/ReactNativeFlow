@@ -13,7 +13,6 @@ export const customLightTheme:CustomThemeProp = {
         textLight:COLORS.textLight,
         label:COLORS.label,
     },
-    roundness:10,
     dark:true,
 };
 

@@ -1,12 +1,13 @@
 import { View,Text } from "react-native";
 import AppStyles from "../../Styles/appStyles";
-import { Button } from "react-native-paper";
+import { Button, useTheme } from "react-native-paper";
 import { unauthenticateApp } from "../../Services/AuthServices";
 
 
 const HomeScreen = ()=>{
+    const {colors} = useTheme();
     return(
-        <View style={[AppStyles.container,AppStyles.contentCenter]}>
+        <View style={[AppStyles.container,AppStyles.contentCenter,{backgroundColor:colors.background}]}>
             <Text style={[AppStyles.fontXL]}>
                 home Screen
             </Text>

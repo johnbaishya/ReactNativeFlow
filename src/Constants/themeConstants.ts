@@ -4,7 +4,7 @@ export const IMAGES = {
 
 export const COLORS = {
     // for light theme
-    primary:"red",
+    primary:"green",
     background:"#fff",
     card:"lightgrey",
     text:"#000",

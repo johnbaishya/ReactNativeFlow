@@ -21,7 +21,7 @@ const loginScreenStyles = StyleSheet.create({
         alignItems:'center',
     },
     logo:{
-        height:100,
+        height:80,
         resizeMode:"contain",
         aspectRatio:"1/1"
     },

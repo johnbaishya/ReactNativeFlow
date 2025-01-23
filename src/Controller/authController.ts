@@ -89,6 +89,8 @@ export const handleRegister = ()=>{
         setAppState({
             loading:false,
             registerLoading:false,
+            success:true,
+            successMessage:"Account Created Successfully"
         });
     })
     .catch(err=>{

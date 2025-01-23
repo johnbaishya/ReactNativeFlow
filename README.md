@@ -81,7 +81,7 @@ The folder structure is designed to keep the project modular and easy to scale. 
 - **/src**  
   - **/Assets**: Contains images, fonts, and other static assets.  
   - **/Components**: Reusable UI components used across the app.  
-  - **/Config**: Centralized configuration methods and settings for the app, such as                                                                      environment-specific configurations, app-wide preferences, and setup functions.  
+  - **/Config**: Centralized configuration methods and settings for the app, such as environment-specific configurations, app-wide preferences, and app initialization setup functions.  
   - **/Constants**: Global constants and enums used throughout the app.  
   - **/Controller**: Manages the business logic and workflows of the app.  
   - **/Hooks**: Custom React hooks for encapsulating reusable logic.  
