@@ -6,24 +6,24 @@ import { User } from "../Types/models";
 import { loginApi, registerApi } from "../Services/Api/authentication";
 import { authenticateApp } from "../Services/AuthServices";
 
-export const setDefaultHeaders = (token:string,url:string=ApiUri.BaseUri)=>{
+export const setDefaultHeaders = (token:string,url:string = ApiUri.BaseUri)=>{
     axios.defaults.baseURL = url;
-    axios.defaults.headers.common['Authorization'] = "Bearer "+token;
-}
+    axios.defaults.headers.common['Authorization'] = "Bearer " + token;
+};
 
 export const clearDefaultHeaders = ()=>{
-    delete axios.defaults.baseURL
-    delete axios.defaults.headers.common['Authorization']
-}
+    delete axios.defaults.baseURL;
+    delete axios.defaults.headers.common['Authorization'];
+};
 
 
 export const handleLogin = ()=>{
-    const {loginEmail,loginPassword} =store.getState().inputs;
-    if(!loginEmail||!loginPassword){
-        console.log("here")
+    const {loginEmail,loginPassword} = store.getState().inputs;
+    if(!loginEmail || !loginPassword){
+        console.log("here");
         setAppState({
             error:true,
-            errorMessage:"All fields are required"
+            errorMessage:"All fields are required",
         });
         return;
     }
@@ -36,7 +36,7 @@ export const handleLogin = ()=>{
     .then(res=>{
         console.log(res.data);
         let user:Partial<User> = res.data as Partial<User>;
-        authenticateApp(user)
+        authenticateApp(user);
         resetInputsState();
         setAppState({
             loading:false,
@@ -45,25 +45,25 @@ export const handleLogin = ()=>{
     })
     .catch(err=>{
         console.log(err);
-        setAppState({error:true,errorMessage:"something went wrong"})
+        setAppState({error:true,errorMessage:"something went wrong"});
         setAppState({
             loading:false,
             loginLoading:false,
         });
-    })
-}
+    });
+};
 
 
 const checkPasswordConfirmation = (p1:string,p2:string):boolean=>{
     return p1 === p2;
-}
+};
 
 export const handleRegister = ()=>{
-    const {registerFirstName,registerLastName,registerEmail,registerPassword,registerPasswordConfirm} =store.getState().inputs;
-    if(!registerFirstName||!registerLastName||!registerEmail||!registerPassword||!registerPasswordConfirm){
+    const {registerFirstName,registerLastName,registerEmail,registerPassword,registerPasswordConfirm} = store.getState().inputs;
+    if(!registerFirstName || !registerLastName || !registerEmail || !registerPassword || !registerPasswordConfirm){
         setAppState({
             error:true,
-            errorMessage:"All fields are required"
+            errorMessage:"All fields are required",
         });
         return;
     }
@@ -84,21 +84,21 @@ export const handleRegister = ()=>{
     .then(res=>{
         console.log(res.data);
         let user:Partial<User> = res.data as Partial<User>;
-        authenticateApp(user)
+        authenticateApp(user);
         resetInputsState();
         setAppState({
             loading:false,
             registerLoading:false,
             success:true,
-            successMessage:"Account Created Successfully"
+            successMessage:"Account Created Successfully",
         });
     })
     .catch(err=>{
         console.log(err);
-        setAppState({error:true,errorMessage:"something went wrong"})
+        setAppState({error:true,errorMessage:"something went wrong"});
         setAppState({
             loading:false,
             loginLoading:false,
         });
-    })
-}
+    });
+};

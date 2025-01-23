@@ -1,7 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-import {TouchableOpacity, View } from 'react-native';
-import Modal from 'react-native-modal';
-import { ActivityIndicator, Dialog, Portal, Text, useTheme } from 'react-native-paper';
+import { Dialog, Portal, Text, useTheme } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
 import { setAppState } from '../../Redux/storeActions';
@@ -9,7 +6,8 @@ import { setAppState } from '../../Redux/storeActions';
 const ErrorModal = ()=>{
     const closemodal = ()=>{
         setAppState({error:false,errorMessage:""});
-    }
+    };
+
     const {error,errorMessage} = useSelector((state:RootState)=>state.app);
     const {colors} = useTheme();
     return(
@@ -25,7 +23,7 @@ const ErrorModal = ()=>{
                 <Dialog.Icon icon={"alert"} color={colors.error} size={30}/>
                 {/* <Dialog.Title style={{textAlign:"center"}}>Error</Dialog.Title> */}
                 <Dialog.Content>
-                    <Text variant='bodyLarge' style={{textAlign:"center"}}>{errorMessage} *</Text>
+                    <Text variant="bodyLarge" style={{textAlign:"center"}}>{errorMessage} *</Text>
                 </Dialog.Content>
             </Dialog>
         </Portal>
