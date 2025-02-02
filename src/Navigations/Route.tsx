@@ -6,7 +6,7 @@ import AuthenticatedStack from "./AuthenticatedStack";
 import UnauthenticatedStack from "./UnauthenticatedStack";
 import AppModals from "../Components/Modals/AppModals";
 import SplashScreen from "../Screens/AuthScreens/SplashScreen";
-import { PaperProvider, useTheme } from "react-native-paper";
+import { PaperProvider } from "react-native-paper";
 import { StatusBar } from "react-native";
 import { customDarkTheme, customLightTheme } from "../Theme/theme";
 import { COLORS } from "../Constants/themeConstants";

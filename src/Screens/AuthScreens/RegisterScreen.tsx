@@ -1,15 +1,13 @@
-import { Image, ScrollView, View } from "react-native"
+import { ScrollView, View } from "react-native"
 import AppStyles from "../../Styles/appStyles";
-import { Button, Divider, Icon, Text, TextInput, useTheme } from "react-native-paper";
+import { Button, Divider, Text, TextInput, useTheme } from "react-native-paper";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
-import { setAppState, setInputsState } from "../../Redux/storeActions";
-import { handleLogin, handleRegister } from "../../Controller/authController";
+import { setInputsState } from "../../Redux/storeActions";
+import { handleRegister } from "../../Controller/authController";
 import loginScreenStyles from "../../Styles/ScrrenStyles/loginScreenStyles";
 import inputStyles from "../../Styles/ComponentStyles/InputStyles";
-import { IMAGES } from "../../Constants/themeConstants";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 import { LoginButton } from "../../Components/Button";
 
@@ -18,7 +16,7 @@ const RegisterScreen = ()=>{
     const {registerFirstName,registerLastName,registerEmail,registerPassword,registerPasswordConfirm} = useSelector((state:RootState)=>state.inputs);
     const [pvisible,setPvisible] = useState(false);
     const [pCvisible,setPCvisible] = useState(false);
-    const {darkTheme,registerLoading} = useSelector((state:RootState)=>state.app)
+    const {registerLoading} = useSelector((state:RootState)=>state.app)
     const navigation = useNavigation();
     return(
         <View style={[AppStyles.container,{backgroundColor:colors.background}]}>
@@ -38,7 +36,7 @@ const RegisterScreen = ()=>{
                                 setInputsState({registerFirstName:text});
                             }}
                             placeholder="First Name"
-                            left={<TextInput.Icon icon="account"/>}
+                            left={<TextInput.Icon icon="account" color={colors.primary}/>}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
@@ -49,7 +47,7 @@ const RegisterScreen = ()=>{
                                 setInputsState({registerLastName:text});
                             }}
                             placeholder="Family Name / Surname"
-                            left={<TextInput.Icon icon="account"/>}
+                            left={<TextInput.Icon icon="account" color={colors.primary}/>}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
@@ -61,7 +59,7 @@ const RegisterScreen = ()=>{
                                 setInputsState({registerEmail:text});
                             }}
                             placeholder="email"
-                            left={<TextInput.Icon icon="email"/>}
+                            left={<TextInput.Icon icon="email" color={colors.primary}/>}
                         />
                     </View>
                    
@@ -74,8 +72,10 @@ const RegisterScreen = ()=>{
                             }}
                             placeholder="password"
                             secureTextEntry={!pvisible}
-                            left={<TextInput.Icon icon="lock"/>}
-                            right={<TextInput.Icon icon={pvisible?"eye":"eye-off"} onPress={()=>{setPvisible(!pvisible)}} />}
+                            left={<TextInput.Icon icon="lock" color={colors.primary}/>}
+                            right={<TextInput.Icon icon={pvisible?"eye":"eye-off"} onPress={()=>{setPvisible(!pvisible)}} 
+                                color={colors.primary}
+                                />}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
@@ -87,8 +87,10 @@ const RegisterScreen = ()=>{
                             }}
                             placeholder="Re-type password"
                             secureTextEntry={!pCvisible}
-                            left={<TextInput.Icon icon="lock"/>}
-                            right={<TextInput.Icon icon={pCvisible?"eye":"eye-off"} onPress={()=>{setPCvisible(!pCvisible)}} />}
+                            left={<TextInput.Icon icon="lock" color={colors.primary}/>}
+                            right={<TextInput.Icon icon={pCvisible?"eye":"eye-off"} onPress={()=>{setPCvisible(!pCvisible)}} 
+                                    color={colors.primary}
+                                />}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>

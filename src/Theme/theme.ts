@@ -12,6 +12,10 @@ export const customLightTheme:CustomThemeProp = {
         text:COLORS.text,
         textLight:COLORS.textLight,
         label:COLORS.label,
+        outline:COLORS.border,
+        // for text input background
+        surfaceVariant:COLORS.textInputBackground,
+        onSurfaceVariant:COLORS.placeholder,
     },
     dark:true,
 };
@@ -25,6 +29,10 @@ export const customDarkTheme:CustomThemeProp = {
         text:COLORS.darkText,
         textLight:COLORS.darkTextLight,
         label:COLORS.darklabel,
+        outline:COLORS.darkBorder,
+        // for text input background
+        surfaceVariant:COLORS.darkTextInputBackground,
+        onSurfaceVariant:COLORS.darkPlaceholder,
     },
     dark:true,
 };

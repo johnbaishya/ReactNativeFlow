@@ -34,7 +34,7 @@ const LoginScreen = ()=>{
                                 setInputsState({loginEmail:text});
                             }}
                             placeholder="email"
-                            left={<TextInput.Icon icon="email"/>}
+                            left={<TextInput.Icon icon="email" color={colors.primary}/>}
                         />
                     </View>
 
@@ -47,8 +47,10 @@ const LoginScreen = ()=>{
                             }}
                             placeholder="password"
                             secureTextEntry={pvisible}
-                            left={<TextInput.Icon icon="lock"/>}
-                            right={<TextInput.Icon icon={!pvisible ? "eye" : "eye-off"} onPress={()=>{setPvisible(!pvisible);}} />}
+                            left={<TextInput.Icon icon="lock" color={colors.primary}/>}
+                            right={<TextInput.Icon icon={!pvisible ? "eye" : "eye-off"} onPress={()=>{setPvisible(!pvisible);}} 
+                            color={colors.primary}
+                            />}
                         />
                     </View>
                     <View style={[inputStyles.inputContainer]}>
